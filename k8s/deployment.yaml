@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lamp-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: lamp-app }
+  template:
+    metadata:
+      labels: { app: lamp-app }
+    spec:
+      containers:
+      - name: lamp-app
+        image: your-dockerhub/lamp-subdomain-generator:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: DB_HOST
+          value: mysql
+        - name: DB_USER
+          value: root
+        - name: DB_PASS
+          value: rootpass
+        - name: DB_NAME
+          value: lampdb

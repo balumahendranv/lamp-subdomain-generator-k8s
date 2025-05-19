@@ -1,0 +1,9 @@
+CREATE DATABASE IF NOT EXISTS lampdb;
+USE lampdb;
+
+CREATE TABLE IF NOT EXISTS pages (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  subdomain VARCHAR(64) NOT NULL,
+  title VARCHAR(255),
+  content TEXT
+);
